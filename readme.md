@@ -103,7 +103,7 @@ SELECT COUNT(*) FROM `videogames`
 
 ```sh
 SELECT country,
-    COUNT(*) as 'number'
+    COUNT(*) as 'total_software_house'
 	    FROM `software_houses`
 GROUP BY country;
 ```
@@ -111,7 +111,7 @@ GROUP BY country;
 2- Contare quante recensioni ha ricevuto ogni videogioco (del videogioco vogliamo solo l'ID) (500)
 ```sh
 SELECT videogame_id,
-	COUNT(*) AS 'number'
+	COUNT(*) AS 'total_reviews'
 FROM `reviews`
 GROUP BY videogame_id;
 ```
@@ -120,7 +120,7 @@ GROUP BY videogame_id;
 
 ```sh
 SELECT pegi_label_id AS 'PEGI',
-	COUNT(*) as 'numero videogiochi'
+	COUNT(*) as 'total_videogames'
 FROM `pegi_label_videogame`
 GROUP BY pegi_label_id;
 ```
@@ -129,7 +129,7 @@ GROUP BY pegi_label_id;
 
 ```sh
 SELECT YEAR(release_date) AS 'anno',
-    COUNT(*) AS 'quantità videogiochi'
+    COUNT(*) AS 'total_videogames'
 FROM `videogames`
 GROUP BY YEAR(release_date);
 ```
@@ -138,7 +138,7 @@ GROUP BY YEAR(release_date);
  
 ```sh
 SELECT device_id,
-COUNT(*) AS 'videogiochi'
+COUNT(*) AS 'total_videogames'
 FROM `device_videogame`
 GROUP BY device_id;
 ```
@@ -146,8 +146,8 @@ GROUP BY device_id;
 6- Ordinare i videogame in base alla media delle recensioni (del videogioco vogliamo solo l'ID) (500)
 
 ```sh
-SELECT videogame_id, AVG(rating) AS 'media voti',
-    COUNT(*) AS 'numero recensioni'
+SELECT videogame_id, AVG(rating) AS 'average_vote',
+    COUNT(*) AS 'total_reviews'
 	FROM reviews
     GROUP BY videogame_id;
 ```
